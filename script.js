@@ -9,6 +9,10 @@
   var easeOut = function (x) { return 1 - Math.pow(1 - x, 3); };
   var smooth = function (x) { x = clamp(x); return x * x * (3 - 2 * x); };
   var LANG = "ru";
+  /* телефон: меньше слоёв, высота окна не прыгает от адресной строки */
+  var MOBILE = W.matchMedia("(max-width:760px)").matches;
+  var TOUCH = W.matchMedia("(pointer:coarse)").matches;
+  var VW = W.innerWidth, VH = W.innerHeight;
 
   /* ---------- WhatsApp: текст собирается в момент клика (фаза захвата на window, совместимо с LeadBot) ---------- */
   var WA_NUM = "77781111023";
@@ -108,6 +112,7 @@
   /* ---------- Пакет слоёв: кадр делится на горизонтальные слои, пресс сжимает их в лист ---------- */
   function layerize(ph) {
     var n = parseInt(ph.getAttribute("data-layers"), 10) || 7;
+    if (MOBILE) n = Math.min(n, 5);
     var pic = ph.querySelector("picture");
     if (!pic || REDUCED) return;
     var isHero = !!ph.closest(".pl-hero");
@@ -136,17 +141,30 @@
   var INTRO = (location.hash.length > 1 || W.pageYOffset > 80 || REDUCED) ? 1 : 0;
   var introStart = 0, ticking = false;
 
-  function update() {
+  /* чтение размеров пакетом, потом запись; open и g догоняют цель плавно (lerp), поэтому скролл пальцем не дёргает слои */
+  var st = pws.map(function () { return { open: -1, g: -1, out: {} }; });
+  var lastTs = 0;
+  function put(pw, s, k, v) { if (s.out[k] !== v) { s.out[k] = v; pw.style.setProperty(k, v); } }
+  function update(ts) {
     ticking = false;
-    var H = W.innerHeight;
+    var now = typeof ts === "number" ? ts : performance.now();
+    var dt = lastTs ? Math.min(64, now - lastTs) : 16.7; lastTs = now;
+    var k = 1 - Math.pow(1 - 0.2, dt / 16.7);
+    var H = VH;
     var pageY = W.pageYOffset;
     var kontTop = kont ? kont.getBoundingClientRect().top : null;
-    for (var i = 0; i < pws.length; i++) {
-      var pw = pws[i], r = pw.getBoundingClientRect();
+    var rects = [], nxtTops = [], i;
+    for (i = 0; i < pws.length; i++) {
+      rects.push(pws[i].getBoundingClientRect());
+      var nx = pws[i].nextElementSibling;
+      nxtTops.push(nx ? nx.getBoundingClientRect().top : null);
+    }
+    var moving = false;
+    for (i = 0; i < pws.length; i++) {
+      var pw = pws[i], r = rects[i], s = st[i];
       var enter = clamp(1 - r.top / H);
       var stay = r.height > H ? clamp(-r.top / (r.height - H)) : 0;
-      var nxt = pw.nextElementSibling;
-      var exit = nxt ? clamp(1 - nxt.getBoundingClientRect().top / H) : 0;
+      var exit = nxtTops[i] !== null ? clamp(1 - nxtTops[i] / H) : 0;
       var isHero = pw.classList.contains("pw-hero");
       var open, g;
       if (isHero) {
@@ -157,15 +175,25 @@
         open = REDUCED ? 1 : smooth((enter - 0.3) / 0.55);
         g = (1 - open) * 0.1 * H;
       }
-      pw.style.setProperty("--enter", enter.toFixed(4));
-      pw.style.setProperty("--stay", stay.toFixed(4));
-      pw.style.setProperty("--exit", exit.toFixed(4));
-      pw.style.setProperty("--open", open.toFixed(4));
-      pw.style.setProperty("--g", g.toFixed(1));
+      var near = r.bottom > -H * 0.5 && r.top < H * 1.5;
+      if (s.open < 0 || REDUCED || !near) { s.open = open; s.g = g; }
+      else {
+        if (!isHero) s.open += (open - s.open) * k; else s.open = open;
+        s.g += (g - s.g) * k;
+        if (Math.abs(open - s.open) > 0.002 || Math.abs(g - s.g) > 0.3) moving = true;
+        else { s.open = open; s.g = g; }
+      }
+      pw.classList.toggle("near", near);
+      put(pw, s, "--enter", enter.toFixed(4));
+      put(pw, s, "--stay", stay.toFixed(4));
+      put(pw, s, "--exit", exit.toFixed(4));
+      put(pw, s, "--open", s.open.toFixed(4));
+      put(pw, s, "--g", s.g.toFixed(1));
       var plate = pw.firstElementChild;
       if (plate) plate.classList.toggle("gone", exit >= 1);
-      var txts = pw.querySelectorAll(".txt");
-      for (var k = 0; k < txts.length; k++) txts[k].classList.toggle("on", isHero ? INTRO > 0.25 : enter > 0.68);
+      if (!s.txts) s.txts = pw.querySelectorAll(".txt");
+      var on = isHero ? INTRO > 0.25 : enter > 0.68;
+      if (s.on !== on) { s.on = on; for (var t = 0; t < s.txts.length; t++) s.txts[t].classList.toggle("on", on); }
     }
     if (sticky) {
       var show = pageY > H * 0.55;
@@ -173,14 +201,20 @@
       sticky.classList.toggle("show", show);
     }
     if (hdr) hdr.classList.toggle("scrolled", pageY > 12);
+    if (moving) onScroll();
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
   W.addEventListener("scroll", onScroll, { passive: true });
-  W.addEventListener("resize", function () { fitText(); onScroll(); updateRails(); });
+  W.addEventListener("resize", function () {
+    /* на телефоне смена только высоты - это адресная строка: раскладку не пересчитываем */
+    if (W.innerWidth !== VW) { VW = W.innerWidth; VH = W.innerHeight; fitText(); updateRails(); }
+    else if (!TOUCH) VH = W.innerHeight;
+    onScroll();
+  });
   function runIntro(ts) {
     if (!introStart) introStart = ts;
     INTRO = clamp((ts - introStart) / 1300);
-    update();
+    update(ts);
     if (INTRO < 1) requestAnimationFrame(runIntro);
   }
 

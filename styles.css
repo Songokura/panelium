@@ -133,7 +133,8 @@ body.menu-open{overflow:hidden}
 .ph img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%)}
 .ph>picture>img{position:absolute;inset:0;transform:scale(calc(1 + .08*var(--exit)));transform-origin:50% 60%}
 .ph.layered>picture{display:none}
-.ly{position:absolute;left:0;right:0;top:calc(var(--i)*100%/var(--n));height:calc(100%/var(--n) + 1px);overflow:hidden;transform:translateY(calc((var(--i) - (var(--n) - 1)/2)*var(--gap)));will-change:transform}
+.ly{position:absolute;left:0;right:0;top:calc(var(--i)*100%/var(--n));height:calc(100%/var(--n) + 1px);overflow:hidden;transform:translateY(calc((var(--i) - (var(--n) - 1)/2)*var(--gap)))}
+.pw.near .ly{will-change:transform}
 .ly img{position:absolute;left:0;top:calc(var(--i)*-100%);width:100%;height:calc(var(--n)*100%);transform:scale(calc(1 + .08*var(--exit)));transform-origin:50% 60%}
 .ly::before{content:"";position:absolute;left:0;right:0;bottom:0;height:11px;opacity:var(--e);pointer-events:none;
   background:linear-gradient(to bottom,#2A2019,#171210),repeating-linear-gradient(to bottom,transparent 0 2px,rgba(255,255,255,.07) 2px 3px);background-blend-mode:screen}
@@ -311,6 +312,14 @@ html[lang="kk"] .ribbon-track{animation-duration:60s}
   .kick{font-size:11px}
   .head h2{font-size:clamp(30px,8.5vw,44px)}
   .ribbon{height:42px}
+  /* плавность на телефоне: без размытия под шапкой и лентами, скругление плиты статичное (не перерисовывается каждый кадр),
+     у слоёв нет второго масштаба и смешивания кромки */
+  .hdr{background:rgba(244,241,236,.97);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .ribbon{background:rgba(27,21,17,.86);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .sticky{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(27,21,17,.97)}
+  .plate{border-radius:22px 22px 0 0}
+  .ly img,.ph>picture>img{transform:none}
+  .ly::before{background:linear-gradient(to bottom,#2A2019,#171210);background-blend-mode:normal}
 }
 @media (max-width:420px){
   #h1 .l1{font-size:var(--fs,clamp(48px,min(15vw,11svh),80px))}
