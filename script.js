@@ -23,7 +23,7 @@
       fasad: "Здравствуйте! Нужны HPL панели для фасада. Площадь и объект: ",
       stol: "Здравствуйте! Нужна HPL столешница. Размеры и декор: ",
       pereg: "Здравствуйте! Нужен HPL для перегородок. Объект и размеры: ",
-      steny: "Здравствуйте! Интересуют стеновые HPL панели. Помещение и площадь: ",
+      steny: "Здравствуйте! Интересуют HPL панели для интерьера. Помещение и площадь: ",
       fartuk: "Здравствуйте! Интересует кухонный фартук из HPL. Размеры: ",
       mebel: "Здравствуйте! Интересует уличная мебель из HPL. Что нужно: ",
       kontakty: "Здравствуйте! Пишу с сайта Panelium. Хочу рассчитать: ",
@@ -138,6 +138,7 @@
   var pws = [].slice.call(doc.querySelectorAll(".pw"));
   var sticky = doc.getElementById("sticky"), kont = doc.getElementById("kontakty");
   var hdr = doc.getElementById("hdr");
+  var cue = doc.getElementById("cue");
   var INTRO = (location.hash.length > 1 || W.pageYOffset > 80 || REDUCED) ? 1 : 0;
   var introStart = 0, ticking = false;
 
@@ -201,6 +202,7 @@
       sticky.classList.toggle("show", show);
     }
     if (hdr) hdr.classList.toggle("scrolled", pageY > 12);
+    if (cue) cue.classList.toggle("off", pageY > H * 0.15);
     if (moving) onScroll();
   }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
