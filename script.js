@@ -26,6 +26,7 @@
       steny: "Здравствуйте! Интересуют HPL панели для интерьера. Помещение и площадь: ",
       fartuk: "Здравствуйте! Интересует кухонный фартук из HPL. Размеры: ",
       mebel: "Здравствуйте! Интересует уличная мебель из HPL. Что нужно: ",
+      dekor: "Здравствуйте! Хочу подобрать декор HPL. Для чего и какой цвет: ",
       kontakty: "Здравствуйте! Пишу с сайта Panelium. Хочу рассчитать: ",
       sticky: "Здравствуйте! Пишу с сайта Panelium. Интересуют HPL панели: "
     }
@@ -343,6 +344,47 @@
       if (thanks) { thanks.hidden = false; try { thanks.focus({ preventScroll: true }); } catch (err) {} }
       form.reset();
     });
+  }
+
+  /* ---------- Декоры: вкладки, «показать все», переход из плит на нужную вкладку ---------- */
+  var dkSec = doc.getElementById("dekory");
+  if (dkSec) {
+    var dkTabs = [].slice.call(dkSec.querySelectorAll("[data-dk]"));
+    var dkMore = dkSec.querySelector(".dk-more");
+    var dkOpen = false;
+    RU["dk.less"] = "Свернуть";
+    var setDk = function (key, focus) {
+      dkTabs.forEach(function (b) {
+        var on = b.getAttribute("data-dk") === key;
+        b.classList.toggle("is-active", on);
+        b.setAttribute("aria-selected", on ? "true" : "false");
+        b.tabIndex = on ? 0 : -1;
+        var pn = doc.getElementById(b.getAttribute("aria-controls"));
+        if (pn) pn.hidden = !on;
+        if (on && focus) b.focus();
+      });
+    };
+    dkTabs.forEach(function (b, i) {
+      b.addEventListener("click", function () { setDk(b.getAttribute("data-dk")); });
+      b.addEventListener("keydown", function (e) {
+        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+        e.preventDefault();
+        var n = dkTabs[(i + (e.key === "ArrowRight" ? 1 : dkTabs.length - 1)) % dkTabs.length];
+        setDk(n.getAttribute("data-dk"), true);
+      });
+    });
+    if (dkMore) dkMore.addEventListener("click", function () {
+      dkOpen = !dkOpen;
+      [].forEach.call(dkSec.querySelectorAll(".dk-panel"), function (pn) { pn.classList.toggle("open", dkOpen); });
+      dkMore.setAttribute("aria-expanded", dkOpen ? "true" : "false");
+      var sp = dkMore.querySelector("span"); var k = dkOpen ? "dk.less" : "dk.more";
+      sp.setAttribute("data-i", k); sp.textContent = (I18N[LANG] && I18N[LANG][k]) || RU[k] || sp.textContent;
+      if (!dkOpen) goTo("dekory");
+    });
+    doc.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[data-tab]") : null;
+      if (a) setDk(a.getAttribute("data-tab"));
+    }, true);
   }
 
   var year = doc.getElementById("year"); if (year) year.textContent = String(new Date().getFullYear());

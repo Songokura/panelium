@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;800&family=Golos+Text:wght@400;500;600&display=swap">
 <link rel="preload" as="image" href="assets/img/hero-fasad-wide.webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/img/hero-fasad-tall.webp" media="(max-width: 760px)" fetchpriority="high">
-<link rel="stylesheet" href="styles.css?v=20261012-3">
+<link rel="stylesheet" href="styles.css?v=20261012-4">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,6 +107,7 @@
     <a href="#stoleshnitsy" data-i="m.stol">HPL для столешниц</a>
     <a href="#peregorodki" data-i="m.pereg">Перегородки</a>
     <a href="#katalog" data-i="m.katalog">Каталог решений</a>
+    <a href="#dekory" data-i="m.dekor">Декоры и размеры</a>
     <a href="#pochemu" data-i="m.hpl">Почему HPL</a>
     <a href="#obekty" data-i="m.obekty">Объекты</a>
     <a href="#kak" data-i="m.kak">Как купить</a>
@@ -173,7 +174,7 @@
         <p class="lead" data-i="f.lead">Вентфасад под дерево и камень. Устойчив к солнцу, морозу и влаге. Для домов, школ и ЖК.</p>
         <div class="cta">
           <a class="btn btn-wa" data-wa="fasad" href="https://wa.me/77781111023"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.price">Узнать цену</span></a>
-          <a class="lnk" href="#raboty"><span data-i="f.more">Смотреть объекты</span><svg width="16" height="16"><use href="#ic-arr"/></svg></a>
+          <a class="lnk" href="#dekory" data-tab="fas"><span data-i="f.more">Цвета для фасада</span><svg width="16" height="16"><use href="#ic-arr"/></svg></a>
         </div>
       </div>
     </div>
@@ -198,7 +199,7 @@
         <p class="lead" data-i="s.lead">Компакт-плита под камень. Устойчива к влаге, теплу и царапинам. Для кухонь, ванных и барных стоек.</p>
         <div class="cta">
           <a class="btn btn-wa" data-wa="stol" href="https://wa.me/77781111023"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="cta.price">Узнать цену</span></a>
-          <a class="lnk" href="#zayavka"><span data-i="s.more">Рассчитать по размерам</span><svg width="16" height="16"><use href="#ic-arr"/></svg></a>
+          <a class="lnk" href="#dekory" data-tab="stol"><span data-i="s.more">Декоры для столешниц</span><svg width="16" height="16"><use href="#ic-arr"/></svg></a>
         </div>
       </div>
     </div>
@@ -239,6 +240,130 @@
         <a class="lnk" data-wa="mebel" href="https://wa.me/77781111023"><svg width="16" height="16"><use href="#ic-wa"/></svg><span data-i="cta.price">Узнать цену</span></a>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- ДЕКОРЫ И РАЗМЕРЫ -->
+<section class="sec sec-dekor" id="dekory" data-theme="light">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kick"><span class="dash"></span><span data-i="dk.kick">Декоры и размеры</span></p>
+      <h2 data-i="dk.h2">Декоры и размеры листов</h2>
+      <p class="lead" data-i="dk.lead">Образцы - в шоуруме. Подберём декор под ваш проект.</p>
+    </div>
+    <div class="dk-tabs" role="tablist" aria-label="Каталог декоров" data-i-aria="dk.tabs">
+      <button type="button" role="tab" id="tab-stol" aria-controls="dk-stol" aria-selected="true" class="is-active" data-dk="stol"><span data-i="dk.t1">Для столешниц</span><i>36</i></button>
+      <button type="button" role="tab" id="tab-fas" aria-controls="dk-fas" aria-selected="false" tabindex="-1" data-dk="fas"><span data-i="dk.t2">Для фасада</span><i>40</i></button>
+    </div>
+    <div class="dk-panel" id="dk-stol" role="tabpanel" aria-labelledby="tab-stol">
+      <ul class="sw-grid">
+          <li class="sw"><img src="assets/img/dekor/st-0871.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0871</b><span class="sw-n">Old Roman Oak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0932.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0932</b><span class="sw-n">Silver Oak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0242.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0242</b><span class="sw-n">Bright Elm</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0110.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0110</b><span class="sw-n">North Teak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0486.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0486</b><span class="sw-n">Thai Teak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0521.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0521</b><span class="sw-n">Linewood</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0211.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0211</b><span class="sw-n">Dune Oak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0278.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0278</b><span class="sw-n">Rough Oak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0398.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0398</b><span class="sw-n">Nepal Teak</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0762.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0762</b><span class="sw-n">Marmo Bianco</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0373.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0373</b><span class="sw-n">Calcutta Marble</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0353.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0353</b><span class="sw-n">Gray Pampas</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0975.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0975</b><span class="sw-n">Rijeka Eiche</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0339.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0339</b><span class="sw-n">White Smoke Stone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0097.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0097</b><span class="sw-n">Essential Wall</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0370.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0370</b><span class="sw-n">Bleached Concrete</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0700.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0700</b><span class="sw-n">Pearl Gray</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0315.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0315</b><span class="sw-n">Beach Cave Stone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0825.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0825</b><span class="sw-n">Beige Pampas</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0509.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0509</b><span class="sw-n">Sulphite</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0508.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0508</b><span class="sw-n">Pearl Soapstone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0928.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0928</b><span class="sw-n">Meteor Stone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0917.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0917</b><span class="sw-n">Snowdrop</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0310.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0310</b><span class="sw-n">Ancient Stone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0365.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0365</b><span class="sw-n">Metallic Black</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0483.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0483</b><span class="sw-n">Earthquake</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0767.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0767</b><span class="sw-n">Portoro</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0355.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0355</b><span class="sw-n">Bronzite</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0775.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0775</b><span class="sw-n">Caracatta</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0776.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0776</b><span class="sw-n">Black Space</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0786.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0786</b><span class="sw-n">Snowflake Stone</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0827.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0827</b><span class="sw-n">Horizon Line</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0828.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0828</b><span class="sw-n">Sunlit Night</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0288.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0288</b><span class="sw-n">Rock Gold</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0814.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0814</b><span class="sw-n">Palisanbro Brown</span></li>
+          <li class="sw"><img src="assets/img/dekor/st-0283.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>0283</b><span class="sw-n">Black Rock Line Stone</span></li>
+      </ul>
+    </div>
+    <div class="dk-panel" id="dk-fas" role="tabpanel" aria-labelledby="tab-fas" hidden>
+      <ul class="sw-grid">
+          <li class="sw"><img src="assets/img/dekor/fs-A601.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>A601</b><span class="sw-n" data-i="dk.g4">Под металл</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-CP801.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>CP801</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-D601.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>D601</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-D603.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>D603</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-D604.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>D604</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-D605.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>D605</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-D606.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>D606</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-S603.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>S603</b><span class="sw-n" data-i="dk.g1">Однотонный</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-SP805.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>SP805</b><span class="sw-n" data-i="dk.g2">Под камень</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-SP806.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>SP806</b><span class="sw-n" data-i="dk.g2">Под камень</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-SP810.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>SP810</b><span class="sw-n" data-i="dk.g2">Под камень</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-SP815.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>SP815</b><span class="sw-n" data-i="dk.g2">Под камень</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD607.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD607</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD608.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD608</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD609.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD609</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD610.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD610</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD611.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD611</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD613.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD613</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD614.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD614</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD615.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD615</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD617.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD617</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD802.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD802</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD803.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD803</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD804.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD804</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD806.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD806</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD812.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD812</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD818.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD818</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD819.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD819</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD820.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD820</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD821.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD821</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD822.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD822</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD823.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD823</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD824.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD824</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD825.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD825</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD826.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD826</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD828.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD828</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD831.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD831</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD832.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD832</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD833.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD833</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+          <li class="sw"><img src="assets/img/dekor/fs-WD835.webp" width="320" height="320" alt="" loading="lazy" decoding="async"><b>WD835</b><span class="sw-n" data-i="dk.g3">Под дерево</span></li>
+      </ul>
+    </div>
+    <div class="dk-foot">
+      <button class="btn btn-ghost dk-more" type="button" aria-expanded="false"><span data-i="dk.more">Показать все декоры</span></button>
+      <a class="btn btn-wa" data-wa="dekor" href="https://wa.me/77781111023"><svg width="18" height="18"><use href="#ic-wa"/></svg><span data-i="dk.cta">Подобрать декор</span></a>
+    </div>
+    <div class="sz-row" id="razmery">
+      <article class="sz rv">
+        <svg class="sz-svg" viewBox="0 0 132 200" aria-hidden="true" focusable="false"><rect x="1" y="1" width="61" height="152.5"/><rect x="70" y="31.5" width="61" height="122"/><text x="31.5" y="178">3050</text><text x="100.5" y="178">2440</text></svg>
+        <div class="sz-t">
+          <p class="sz-k" data-i="dk.s1k">6 мм</p>
+          <h3 data-i="dk.s1">Фасад</h3>
+          <p class="sz-u" data-i="dk.s1u">Вентилируемые фасады</p>
+          <ul class="sz-l"><li>1220 × 3050 мм</li><li>1220 × 2440 мм</li></ul>
+        </div>
+      </article>
+      <article class="sz rv">
+        <svg class="sz-svg" viewBox="0 0 132 200" aria-hidden="true" focusable="false"><rect x="1" y="1" width="61" height="152.5"/><rect x="70" y="31.5" width="61" height="122"/><text x="31.5" y="178">3050</text><text x="100.5" y="178">2440</text></svg>
+        <div class="sz-t">
+          <p class="sz-k" data-i="dk.s2k">12 мм</p>
+          <h3 data-i="dk.s2">Столешницы и перегородки</h3>
+          <p class="sz-u" data-i="dk.s2u">Кухни, санузлы, офисы</p>
+          <ul class="sz-l"><li>1220 × 3050 мм</li><li>1220 × 2440 мм</li></ul>
+        </div>
+      </article>
+    </div>
+    <p class="sz-note" data-i="dk.note">Под проект: толщина 6, 8, 10 и 12 мм, листы до 1525 × 3660 мм.</p>
   </div>
 </section>
 
@@ -412,6 +537,6 @@
   <a class="st-ig" href="https://www.instagram.com/panelium.kz/" target="_blank" rel="noopener" aria-label="Instagram Panelium" data-i-aria="ig.aria"><svg width="20" height="20"><use href="#ic-ig"/></svg></a>
 </div>
 
-<script src="script.js?v=20261012-3" defer></script>
+<script src="script.js?v=20261012-4" defer></script>
 </body>
 </html>
