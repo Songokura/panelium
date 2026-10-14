@@ -209,12 +209,12 @@ body.menu-open{overflow:hidden}
 .bt-fire,.bt-srez,.bt-decor{grid-column:span 4}
 .bt img{aspect-ratio:4/3;height:auto;flex:0 0 auto}
 .bt figcaption{flex:1 1 auto}
-.bt-tiles{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.bt-tiles{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .tile{padding:22px 22px 24px;border-radius:var(--rad);background:var(--brown);display:flex;flex-direction:column;justify-content:flex-start;gap:8px;position:relative;overflow:hidden;min-height:150px}
 .tile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold)}
 .tile b{font:800 21px/1.15 var(--fd)}
 .tile span{font-size:15.5px;color:var(--fg2);line-height:1.5}
-@media (max-width:900px){.bt-fire,.bt-srez,.bt-decor{grid-column:1/-1}.bt img{aspect-ratio:16/10}.bt-tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.bt-fire,.bt-srez,.bt-decor{grid-column:1/-1}.bt img{aspect-ratio:16/10}.bt-tiles{grid-template-columns:1fr}}
 @media (max-width:520px){.bt-tiles{gap:12px;grid-template-columns:1fr}.tile{padding:18px 16px 20px;min-height:0}.tile b{font-size:18px}.tile span{font-size:14.5px}}
 
 /* ---------- лента объектов ---------- */
