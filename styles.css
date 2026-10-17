@@ -151,13 +151,8 @@ body.menu-open{overflow:hidden}
 .iglink svg{display:block}
 .iglink .arr-i{transition:transform .2s}
 .iglink:hover .arr-i{transform:translateX(3px)}
-.ribbon{position:absolute;left:0;right:0;bottom:0;z-index:4;height:48px;border-top:1px solid rgba(244,241,236,.14);background:rgba(27,21,17,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow:hidden;display:flex;align-items:center}
-.ribbon-track{display:flex;width:max-content;animation:ribbon 48s linear infinite}
-.ribbon-track span{flex:0 0 auto;padding:0 28px;font:600 12px/1 var(--ft);letter-spacing:.16em;text-transform:uppercase;color:#D6CCC0;position:relative;white-space:nowrap}
-.ribbon-track span::after{content:"";position:absolute;right:-3px;top:50%;width:6px;height:6px;margin-top:-3px;background:var(--gold);transform:rotate(45deg)}
-@keyframes ribbon{to{transform:translateX(-50%)}}
 /* подсказка «листайте вниз»: первый экран героя длиннее окна, без неё неясно, что дальше есть контент */
-.cue{position:absolute;z-index:5;right:max(var(--gut),calc((100vw - 1200px)/2));bottom:calc(48px + 18px);display:flex;flex-direction:column;align-items:center;gap:8px;font:600 11px/1 var(--ft);letter-spacing:.16em;text-transform:uppercase;color:#E8E1D7;transition:opacity .4s}
+.cue{position:absolute;z-index:5;right:max(var(--gut),calc((100vw - 1200px)/2));bottom:clamp(20px,4svh,40px);display:flex;flex-direction:column;align-items:center;gap:8px;font:600 11px/1 var(--ft);letter-spacing:.16em;text-transform:uppercase;color:#E8E1D7;transition:opacity .4s}
 .cue svg{transform:rotate(90deg);color:var(--gold2);animation:cue 1.8s cubic-bezier(.45,0,.55,1) infinite}
 .cue:hover{color:#fff}
 .cue.off{opacity:0;pointer-events:none}
@@ -335,7 +330,6 @@ html:not(.js) .plate .txt>*{opacity:1;transform:none}
 /* ---------- казахский: подбор кегля ---------- */
 html[lang="kk"] #h1 .l1{letter-spacing:-.025em}
 html[lang="kk"] .plate h2,html[lang="kk"] .sub-h1{letter-spacing:-.02em}
-html[lang="kk"] .ribbon-track{animation-duration:60s}
 
 /* ---------- мобильные правки ---------- */
 @media (max-width:760px){
@@ -354,11 +348,9 @@ html[lang="kk"] .ribbon-track{animation-duration:60s}
   .hero-txt .cta .btn{width:100%}
   .kick{font-size:11px}
   .head h2{font-size:clamp(30px,8.5vw,44px)}
-  .ribbon{height:42px}
-  .cue{right:auto;left:50%;bottom:calc(42px + 14px);translate:-50% 0}
+  .cue{right:auto;left:50%;bottom:16px;translate:-50% 0}
   /* плавность на телефоне: без размытия под шапкой и лентами */
   .hdr{background:rgba(244,241,236,.97);backdrop-filter:none;-webkit-backdrop-filter:none}
-  .ribbon{background:rgba(27,21,17,.86);backdrop-filter:none;-webkit-backdrop-filter:none}
   .sticky{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(27,21,17,.97)}
 }
 @media (max-width:420px){
@@ -368,7 +360,6 @@ html[lang="kk"] .ribbon-track{animation-duration:60s}
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .ribbon-track{animation:none}
   .cue svg{animation:none}
   .rv,.plate .txt>*{opacity:1;transform:none;transition:none}
   .plate{transition:none}
@@ -376,13 +367,6 @@ html[lang="kk"] .ribbon-track{animation-duration:60s}
 }
 
 /* Срез панелей */
-.sec-srez{background:var(--paper2)}
-.srez-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,72px);align-items:center}
-.srez-txt h2{margin-top:14px;font-size:clamp(32px,4.6vw,60px);text-wrap:balance}
-.srez-txt .lead{margin-top:18px}
-.srez-ph{margin:0;border-radius:var(--rad);overflow:hidden}
-.srez-ph img{display:block;width:100%;height:auto;aspect-ratio:1000/639;object-fit:cover}
-@media (max-width:900px){.srez-in{grid-template-columns:minmax(0,1fr)}.srez-ph{order:-1}.srez-txt h2{font-size:clamp(30px,8.5vw,44px)}}
 
 /* одна карточка формата на страницах фасада и столешниц */
 .sz-row.sz-one{grid-template-columns:minmax(0,1fr);max-width:720px}
