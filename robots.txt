@@ -9,4 +9,4 @@ Allow: /
 Disallow: /assets/lang/
 Disallow: /*lang=kk
 
-Sitemap: https://songokura.github.io/panelium/sitemap.xml
+Sitemap: https://panelium.com.kz/sitemap.xml
