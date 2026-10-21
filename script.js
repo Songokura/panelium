@@ -243,6 +243,20 @@
     setTimeout(function () { rv.forEach(function (el) { if (!el.classList.contains("in") && el.getBoundingClientRect().top < W.innerHeight) el.classList.add("in"); }); }, 1500);
   } else rv.forEach(function (el) { el.classList.add("in"); });
 
+  /* ---------- Конверсии Google Ads ---------- */
+  function fireConv(key) {
+    if (typeof W.gtag_report_conversion !== "function" || !W.AW_CONV) return;
+    var sendTo = W.AW_CONV[key];
+    if (sendTo) W.gtag_report_conversion(undefined, sendTo);
+  }
+  /* tel: открывает набор номера, wa.me и mailto - другое приложение или вкладку:
+     страница не выгружается, поэтому переход не перехватываем, а только отправляем конверсию. */
+  doc.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href*="wa.me"], a[href^="mailto:"]') : null;
+    if (!a) return;
+    fireConv(a.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "contact");
+  });
+
   /* ---------- Форма -> WhatsApp ---------- */
   var form = doc.getElementById("form"), thanks = doc.getElementById("thanks"), ferr = doc.getElementById("ferr");
   if (form) {
@@ -260,6 +274,7 @@
       var lines = [L.head, L.name + ": " + name, L.phone + ": " + phone];
       if (f.message.value.trim()) lines.push(L.msg + ": " + f.message.value.trim());
       var url = "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(lines.join("\n"));
+      fireConv("form");
       W.open(url, "_blank", "noopener");
       if (thanks) { thanks.hidden = false; try { thanks.focus({ preventScroll: true }); } catch (err) {} }
       form.reset();

@@ -3,6 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18528765409"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18528765409');
+
+  /* Конверсии Google Ads. sendTo по умолчанию - «Интерактивные номера телефонов».
+     Если передан url - переход выполняется в event_callback (для ссылок с переходом). */
+  var AW_CONV = {
+    phone:   'AW-18528765409/8lwiCOKp0qQdEOGLmoNF',
+    form:    'AW-18528765409/APZOCKS80qQdEOGLmoNF',
+    contact: 'AW-18528765409/bsU7CMnJ0qQdEOGLmoNF'
+  };
+  function gtag_report_conversion(url, sendTo) {
+    var done = false;
+    var callback = function () {
+      if (done) return;
+      done = true;
+      if (typeof (url) != 'undefined' && url) window.location = url;
+    };
+    gtag('event', 'conversion', {
+      'send_to': sendTo || AW_CONV.phone,
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+    });
+    if (typeof (url) != 'undefined' && url) window.setTimeout(callback, 1000);
+    return false;
+  }
+</script>
 <title>HPL столешницы в Алматы - от 140 000 ₸ за лист | Panelium</title>
 <meta name="description" content="Монолитные HPL-плиты для кухонных и ванных столешниц, барных стоек и кухонных фартуков от 140 000 ₸ за лист. 36 декоров под камень, мрамор и дерево. Шоурум в Алматы, доставка по Казахстану.">
 <link rel="canonical" href="https://panelium.com.kz/stoleshnitsy/">
@@ -28,7 +59,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;800&family=Golos+Text:wght@400;500;600&display=swap">
 <link rel="preload" as="image" href="../assets/img/stol-kollazh-wide.webp" media="(min-width: 761px)" fetchpriority="high">
 <link rel="preload" as="image" href="../assets/img/stol-kollazh-tall.webp" media="(max-width: 760px)" fetchpriority="high">
-<link rel="stylesheet" href="../styles.css?v=20261019-1">
+<link rel="stylesheet" href="../styles.css?v=20261021-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -344,6 +375,6 @@
   <a class="st-ig" href="https://www.instagram.com/panelium.kz/" target="_blank" rel="noopener" aria-label="Instagram Panelium" data-i-aria="ig.aria"><svg width="20" height="20"><use href="#ic-ig"/></svg></a>
 </div>
 
-<script src="../script.js?v=20261019-1" defer></script>
+<script src="../script.js?v=20261021-1" defer></script>
 </body>
 </html>
